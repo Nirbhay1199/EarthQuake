@@ -83,7 +83,9 @@ public class MainActivity extends AppCompatActivity {
                                 Calendar calendar = Calendar.getInstance();
                                 long timeInMills = Long.parseLong(eTime);
                                 calendar.setTimeInMillis(timeInMills);
-                                String newTime = calendar.getTime().toString();
+                                @SuppressLint("SimpleDateFormat") DateFormat sdf = new SimpleDateFormat("h:mm a");
+                                dateFormat.format(calendar.getTime());
+                                String newTime = sdf.format(calendar.getTime());
 
                                 quakes.add(place);
                                 magnitude.add(Double.toString(magnitude2));
@@ -137,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
             TextView time = myView.findViewById(R.id.time);
             time.setText(time5.get(i));
-
 
             return myView;
         }
